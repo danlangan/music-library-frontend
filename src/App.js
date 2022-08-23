@@ -10,6 +10,7 @@ function App() {
     getAllSongs();
     postNewSong();
     deleteSong();
+    updateSong();
   }, []);
 
   async function getAllSongs(){
@@ -26,6 +27,11 @@ function App() {
 
   async function deleteSong(){
     const response = await axios.delete('http://127.0.0.1:8000/music/');
+    console.log(response.data)
+  }
+
+  async function updateSong(){
+    const response = await axios.put('http://127.0.0.1:8000/music/');
     console.log(response.data)
   }
 
