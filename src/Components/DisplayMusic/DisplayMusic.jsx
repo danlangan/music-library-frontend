@@ -1,3 +1,5 @@
+import DeleteButton from '../DeleteButton/DeleteButton';
+
 const DisplayMusic = (props) => {
     return (
         <table>
@@ -11,7 +13,7 @@ const DisplayMusic = (props) => {
                 </tr>
             </thead>
             <tbody>
-                {props.parentEntries.map((song) => {
+                {props.songs.map((song) => {
                     return (
                     <tr>
                         <td>{song.title}</td>
@@ -19,6 +21,7 @@ const DisplayMusic = (props) => {
                         <td>{song.album}</td>
                         <td>{song.release_date}</td>
                         <td>{song.genre}</td>
+                        <DeleteButton id={song.id} getAllSongs={props.getAllSongs}/>
                     </tr>
                     );
                 })};

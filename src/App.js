@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
+import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 
 function App() {
   
@@ -8,9 +9,9 @@ function App() {
 
   useEffect(() => {
     getAllSongs();
-    postNewSong();
-    deleteSong();
-    updateSong();
+    // postNewSong();
+    // deleteSong();
+    // updateSong();
   }, []);
 
   async function getAllSongs(){
@@ -19,16 +20,13 @@ function App() {
     setSongs(response.data)
   }
 
-  async function postNewSong(){
-    const response = await axios.post('http://127.0.0.1:8000/music/');
+  async function postNewSong(newSong){
+    const response = await axios.post('http://127.0.0.1:8000/music/', newSong);
     console.log(response.data)
 
   }
 
-  async function deleteSong(){
-    const response = await axios.delete('http://127.0.0.1:8000/music/');
-    console.log(response.data)
-  }
+  
 
   async function updateSong(){
     const response = await axios.put('http://127.0.0.1:8000/music/');
@@ -38,6 +36,7 @@ function App() {
   return (
     <div>
       <button onClick={() => getAllSongs()}>Get All Songs</button>
+      <DisplayMusic songs={songs} getAllSongs={getAllSongs}/>
     </div>
   );
 }
