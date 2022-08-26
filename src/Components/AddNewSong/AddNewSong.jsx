@@ -1,19 +1,19 @@
-import axios from 'axios'
+import axios from 'axios';
 import React, { useState } from 'react';
 
 
 const addNewSong = (props) => {
+
+    async function postNewSong(newSong){
+        const response = await axios.post('http://127.0.0.1:8000/music/', newSong);
+        console.log(response.data)
+    }
 
     const [songName, setSongName] = useState('');
     const [artist, setArtist] = useState('');
     const [album, setAlbum] = useState('');
     const [releaseDate, setDate] = useState('');
     const [genre, setGenre] = useState('');
-
-    async function postNewSong(newSong){
-        const response = await axios.post('http://127.0.0.1:8000/music/', newSong);
-        console.log(response.data)
-    }
 
     function handleSubmit(event) {
         event.preventDefault();

@@ -1,4 +1,5 @@
 import DeleteButton from '../DeleteButton/DeleteButton';
+import UpdateSong from '../UpdateSong/UpdateSong';
 
 const DisplayMusic = (props) => {
     return (
@@ -22,6 +23,7 @@ const DisplayMusic = (props) => {
                         <td>{song.release_date}</td>
                         <td>{song.genre}</td>
                         <DeleteButton id={song.id} getAllSongs={props.getAllSongs}/>
+                        <UpdateSong id={song.id} getAllSongs={props.getAllSongs}/>
                     </tr>
                     );
                 })};
