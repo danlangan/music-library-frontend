@@ -9,9 +9,6 @@ function App() {
 
   useEffect(() => {
     getAllSongs();
-    // postNewSong();
-    // deleteSong();
-    // updateSong();
   }, []);
 
   async function getAllSongs(){
@@ -19,15 +16,7 @@ function App() {
     console.log(response.data)
     setSongs(response.data)
   }
-
-  async function postNewSong(newSong){
-    const response = await axios.post('http://127.0.0.1:8000/music/', newSong);
-    console.log(response.data)
-
-  }
-
   
-
   async function updateSong(){
     const response = await axios.put('http://127.0.0.1:8000/music/');
     console.log(response.data)
