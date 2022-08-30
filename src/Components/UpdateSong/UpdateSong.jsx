@@ -14,7 +14,7 @@ const UpdateSong = (props) => {
     const [releaseDate, setNewDate] = useState(props.releaseDate);
     const [genre, setNewGenre] = useState(props.genre);
 
-    function handleSubmit(event) {
+    function handleClick(event) {
         event.preventDefault();
         let updatedSong = {
             songName: songName,
@@ -28,25 +28,28 @@ const UpdateSong = (props) => {
     };
 
     return (
-        <div>
-        <form onSubmit={handleSubmit}>
-            <div><label>Song Name</label>
-            <input value={songName} onChange={(event) => setNewSongName(event.target.value)}/></div>
-            <br></br>
-            <div><label>Artist</label>
-            <input value={artist} onChange={(event) => setNewArtist(event.target.value)}/></div>
-            <br></br>
-            <div><label>Album</label>
-            <input value={album} onChange={(event) => setNewAlbum(event.target.value)}/></div>
-            <br></br>
-            <div><label>Release Date</label>
-            <input value={releaseDate} onChange={(event) => setNewDate(event.target.value)}/></div>
-            <br></br>
-            <div><label>Genre</label>
-            <input value={genre} onChange={(event) => setNewGenre(event.target.value)}/></div>
-            <br></br>
-            <button type="submit" onClick={updateSongInfo}>Update Song</button>
-        </form>
+        <div><button onClick={'prompt'}>
+            <prompt>
+            <form onSubmit={handleClick}>
+                <div><label>Song Name</label>
+                <input value={songName} onChange={(event) => setNewSongName(event.target.value)}/></div>
+                <br></br>
+                <div><label>Artist</label>
+                <input value={artist} onChange={(event) => setNewArtist(event.target.value)}/></div>
+                <br></br>
+                <div><label>Album</label>
+                <input value={album} onChange={(event) => setNewAlbum(event.target.value)}/></div>
+                <br></br>
+                <div><label>Release Date</label>
+                <input value={releaseDate} onChange={(event) => setNewDate(event.target.value)}/></div>
+                <br></br>
+                <div><label>Genre</label>
+                <input value={genre} onChange={(event) => setNewGenre(event.target.value)}/></div>
+                <br></br>
+                <button type="submit" onClick={updateSongInfo}>Update Song</button>
+            </form>
+            </prompt>
+            </button>
         </div>
     );
 

@@ -1,8 +1,8 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import AddNewSong from './Components/AddNewSong/AddNewSong';
+import SearchBar from './Components/SearchBar/SearchBar';
 import axios from 'axios'
-import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
-import SearchBar from './Components/SearchBar/SearchBar'
 
 function App() {
   
@@ -17,14 +17,19 @@ function App() {
     console.log(response.data)
     setSongs(response.data)
   }
-
+  
   return (
     <div>
       <head>
-
+      <h1>Song Library</h1>
       </head>
-      <button onClick={() => getAllSongs()}>Get All Songs</button>
+      <body>
+      <SearchBar songs={songs}/>
+      <br></br>
+      <h2>Add Song To Library</h2>
+      <AddNewSong getAllSongs={getAllSongs}/>
       <DisplayMusic songs={songs} getAllSongs={getAllSongs}/>
+      </body>
     </div>
   );
 }
