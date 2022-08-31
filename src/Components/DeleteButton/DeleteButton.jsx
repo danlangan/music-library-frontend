@@ -9,7 +9,7 @@ const DeleteButton = (props) => {
       }
 
     return (
-       <button onClick={deleteSong}>Delete Song</button>
+       <button class='btn btn-outline-primary' onClick={deleteSong}>Delete Song</button>
     );
 }
 

@@ -23,10 +23,9 @@ const SearchBar = (props) => {
     };
 
     return (
-        <form onSubmit={searchMusic}>
-            <h3>Search Music Library</h3>
-            <input type='text' placeholder="Start your search here..." value={foundSong} onChange={(event) => setFoundSong(event.target.value)}/>
-            <button type='submit'>Search</button>
+        <form style={{marginLeft:'10%', marginRight:'10%'}} onSubmit={searchMusic}>
+            <div style={{padding:'.5em'}}><input type='text' placeholder="Search Music Library Here..." class="form-control rounded" value={foundSong} onChange={(event) => setFoundSong(event.target.value)}/>
+            <button style={{marginTop:"1em"}} type='submit' class='btn btn-outline-primary'>Search</button></div>
         </form>
     )
 }

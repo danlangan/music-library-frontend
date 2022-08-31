@@ -31,7 +31,7 @@ const UpdateSong = (props) => {
 
     return (
         <details>
-            <summary>Update Song</summary>
+            <summary>Update Song<br></br><small className='text-muted'>Click Arrow For Options</small></summary>
             <form onSubmit={handleSubmit}>
                 <div><label>Song Name</label>
                 <input value={songName}  onChange={(event) => setNewSongName(event.target.value)}/></div>
@@ -48,7 +48,7 @@ const UpdateSong = (props) => {
                 <div><label>Genre</label>
                 <input value={genre} onChange={(event) => setNewGenre(event.target.value)}/></div>
                 <br></br>
-                <button type="submit" onClick={updateSongInfo}>Update Song</button>
+                <button type="submit" class='btn btn-outline-primary' onClick={updateSongInfo}>Update Song</button>
             </form>
             
         </details>

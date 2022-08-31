@@ -31,18 +31,18 @@ const AddNewSong = (props) => {
 
     return (
         <div>
-        <form onSubmit={handleSubmit}>
-            <div><label>Song Name</label>
-            <input value={songName} onChange={(event) => setSongName(event.target.value)}/></div>
-            <div><label>Artist</label>
-            <input value={artist} onChange={(event) => setArtist(event.target.value)}/></div>
-            <div><label>Album</label>
-            <input value={album} onChange={(event) => setAlbum(event.target.value)}/></div>
-            <div><label>Release Date</label>
-            <input type="date" value={releaseDate} onChange={(event) => setDate(event.target.value)}/></div>
-            <div><label>Genre</label>
-            <input value={genre} onChange={(event) => setGenre(event.target.value)}/></div>
-            <button type="submit" onClick={postNewSong}>Add Song To Library</button>
+        <form style={{marginLeft:'10%', marginRight:'10%', marginBottom:'5%'}}onSubmit={handleSubmit}>
+            <div style={{padding:'.5em'}}><label>Song Name</label>
+            <input class="form-control rounded" value={songName} onChange={(event) => setSongName(event.target.value)}/></div>
+            <div style={{padding:'.5em'}}><label>Artist</label>
+            <input class="form-control rounded" value={artist} onChange={(event) => setArtist(event.target.value)}/></div>
+            <div style={{padding:'.5em'}}><label>Album</label>
+            <input class="form-control rounded" value={album} onChange={(event) => setAlbum(event.target.value)}/></div>
+            <div style={{padding:'.5em'}}><label>Release Date</label>
+            <input class="form-control rounded" type="date" value={releaseDate} onChange={(event) => setDate(event.target.value)}/></div>
+            <div style={{padding:'.5em'}}><label>Genre</label>
+            <input class="form-control rounded" value={genre} onChange={(event) => setGenre(event.target.value)}/></div>
+            <button type="submit" class='btn btn-outline-primary' onClick={postNewSong}>Add Song To Library</button>
         </form>
         </div>
     );
