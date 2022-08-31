@@ -7,7 +7,7 @@ const AddNewSong = (props) => {
         const response = await axios.post('http://127.0.0.1:8000/music/', newSong);
         console.log(response.data)
         props.getAllSongs();
-    }
+    };
 
     const [songName, setSongName] = useState('');
     const [artist, setArtist] = useState('');
@@ -39,7 +39,7 @@ const AddNewSong = (props) => {
             <div><label>Album</label>
             <input value={album} onChange={(event) => setAlbum(event.target.value)}/></div>
             <div><label>Release Date</label>
-            <input value={releaseDate} onChange={(event) => setDate(event.target.value)}/></div>
+            <input type="date" value={releaseDate} onChange={(event) => setDate(event.target.value)}/></div>
             <div><label>Genre</label>
             <input value={genre} onChange={(event) => setGenre(event.target.value)}/></div>
             <button type="submit" onClick={postNewSong}>Add Song To Library</button>

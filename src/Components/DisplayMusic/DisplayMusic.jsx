@@ -3,7 +3,7 @@ import UpdateSong from '../UpdateSong/UpdateSong';
 
 const DisplayMusic = (props) => {
     return (
-        <table>
+        <table class='table table-striped'>
             <thead>
                 <tr>
                     <th>Title</th>
@@ -23,7 +23,7 @@ const DisplayMusic = (props) => {
                         <td>{song.release_date}</td>
                         <td>{song.genre}</td>
                         <DeleteButton id={song.id} getAllSongs={props.getAllSongs}/>
-                        <UpdateSong id={song.id} getAllSongs={props.getAllSongs}/>
+                        <UpdateSong id={song.id} song={song} getAllSongs={props.getAllSongs}/>
                     </tr>
                     );
                 })};
