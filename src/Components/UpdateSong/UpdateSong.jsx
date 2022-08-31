@@ -8,10 +8,10 @@ const UpdateSong = (props) => {
         console.log(response.data)
     };
 
-    const [songName, setNewSongName] = useState(props.songName);
+    const [songName, setNewSongName] = useState(props.title);
     const [artist, setNewArtist] = useState(props.artist);
     const [album, setNewAlbum] = useState(props.album);
-    const [releaseDate, setNewDate] = useState(props.releaseDate);
+    const [releaseDate, setNewDate] = useState(props.release_date);
     const [genre, setNewGenre] = useState(props.genre);
 
     function handleClick(event) {
@@ -20,7 +20,7 @@ const UpdateSong = (props) => {
             songName: songName,
             artist: artist,
             album: album,
-            releaseDate: releaseDate,
+            release_date: releaseDate,
             genre: genre,
         };
         console.log(updatedSong);
@@ -28,8 +28,8 @@ const UpdateSong = (props) => {
     };
 
     return (
-        <div><button onClick={'prompt'}>
-            <prompt>
+        <button onClick={alert}> Update Song
+            <alert>
             <form onSubmit={handleClick}>
                 <div><label>Song Name</label>
                 <input value={songName} onChange={(event) => setNewSongName(event.target.value)}/></div>
@@ -48,9 +48,8 @@ const UpdateSong = (props) => {
                 <br></br>
                 <button type="submit" onClick={updateSongInfo}>Update Song</button>
             </form>
-            </prompt>
+            </alert>
             </button>
-        </div>
     );
 
 }

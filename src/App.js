@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import AddNewSong from './Components/AddNewSong/AddNewSong';
 import SearchBar from './Components/SearchBar/SearchBar';
 import axios from 'axios'
+import DisplayMusic from './Components/DisplayMusic/DisplayMusic';
 
 function App() {
   
@@ -24,7 +25,7 @@ function App() {
       <h1>Song Library</h1>
       </head>
       <body>
-      <SearchBar songs={songs}/>
+      <SearchBar songs={songs} setSongs={setSongs}/>
       <br></br>
       <h2>Add Song To Library</h2>
       <AddNewSong getAllSongs={getAllSongs}/>

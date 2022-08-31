@@ -6,6 +6,7 @@ const AddNewSong = (props) => {
     async function postNewSong(newSong){
         const response = await axios.post('http://127.0.0.1:8000/music/', newSong);
         console.log(response.data)
+        props.getAllSongs();
     }
 
     const [songName, setSongName] = useState('');
@@ -17,14 +18,15 @@ const AddNewSong = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         let newSong = {
-            songName: songName,
+            title: songName,
             artist: artist,
             album: album,
-            releaseDate: releaseDate,
+            release_date: releaseDate,
             genre: genre,
         };
         console.log(newSong);
-        props.AddNewSong(newSong);
+        postNewSong(newSong);
+        
     }
 
     return (

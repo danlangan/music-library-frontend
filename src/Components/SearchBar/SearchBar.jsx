@@ -1,50 +1,33 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
-import axios from 'axios'
+import { useState } from 'react';
 
 const SearchBar = (props) => {
-    async function filterSongs(){
-        const response = await axios.get('http://127.0.0.1:8000/music/');
-        console.log(response.data)
-        setFilter(response.data)
-    }
-    const [filter, setFilter] = useState('');
 
-    useEffect(() => {
-        filterSongs();
-      }, []);
-    
-    function handleClick(event) {
+    const [foundSong, setFoundSong] = useState('');
+
+    function searchMusic(event) {
         event.preventDefault();
-        let filteredSongs = [];
-        console.log(filteredSongs);
-        props.SearchBar(filteredSongs);
-    }
+        let response = props.songs.filter((song) => {
+            if (song.title.includes(foundSong) ||
+                song.artist.includes(foundSong) ||
+                song.album.includes(foundSong) ||
+                song.release_date.includes(foundSong) ||
+                song.genre.includes(foundSong)) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+        });
+        props.setSongs(response)
+    };
 
     return (
-        <div>
-            <input 
-                type="text" 
-                placeholder='Search Song Library...' 
-                onChange={(e) => setFilter(e.target.value)}/>
-                <br></br>
-            <ul className='list'>
-                {song.filter((song) => 
-                song.name.toLowerCase().includes(...filter, filter)
-                ).map((song) => (
-                    <li id={song.id}>
-                        {song.name}
-                        {song.artist}
-                        {song.album}
-                        {song.releaseDate}
-                        {song.genre}
-                    </li>
-                ))});
-            </ul>
-            <br></br>
-            <button onClick={handleClick}>Display Search Results</button>
-            
-        </div>
+        <form onSubmit={searchMusic}>
+            <h3>Search Music Library</h3>
+            <input type='text' placeholder="Start your search here..." value={foundSong} onChange={(event) => setFoundSong(event.target.value)}> </input>
+            <button type='submit'>Search</button>
+        </form>
     )
 }
 
